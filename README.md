@@ -23,5 +23,5 @@ Este projeto tem como objetivo fornecer um pipeline leve e interpretável para d
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/sprint_processos.git
+git clone https://github.com/lcpleandro/tfsExtract.git
 cd sprint_processos
