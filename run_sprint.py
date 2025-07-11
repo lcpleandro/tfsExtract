@@ -23,10 +23,11 @@ if __name__ == "__main__":
     sprint_formatada = extrair_sprint_formatada(caminho_arquivo)
     sprint_raw = sprint_formatada.replace(' ', '.').lower()
 
-    nome_final = f'{sprint_raw}-{tipo}.csv'
-    caminho_saida = os.path.join(r'C:\saida', sprint_raw)
-    os.makedirs(caminho_saida, exist_ok=True)
-    caminho_final = os.path.join(caminho_saida, nome_final)
+    nome_original = os.path.basename(caminho_arquivo)
+    nome_base, extensao = os.path.splitext(nome_original)
+
+    nome_final = f'{nome_base} - tfs_format{extensao}'
+    caminho_final = os.path.join(os.path.dirname(caminho_arquivo), nome_final)
 
     # =========================================
     # 3.1 Adiciona colunas de Iteration e Area Path
