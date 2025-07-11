@@ -1,3 +1,4 @@
+import csv
 from processamento.pipeline import processar_csv_sprint, extrair_sprint_formatada
 from diagnostico.gerar import gerar_diagnostico
 import os
@@ -6,7 +7,7 @@ if __name__ == "__main__":
     # =========================================
     # 1. Caminho do arquivo CSV a ser processado
     # =========================================
-    caminho_arquivo = r'C:\Users\Leandro\OneDrive - ArcelorMittal\Desktop\hist_sprint\2025.w27\2025.W27 - nplan.CSV'
+    caminho_arquivo = r'C:\Users\Leandro\OneDrive - ArcelorMittal\Desktop\hist_sprint\2025.w29\2025.W29 - plan.CSV'
 
     # =========================================
     # 2. Processa e diagnostica o tipo de Input - nplan ou plan
@@ -15,6 +16,7 @@ if __name__ == "__main__":
     tipo = 'nplan' if 'nplan' in nome_arquivo_origem else ('plan' if 'plan' in nome_arquivo_origem else 'saida')
 
     df = processar_csv_sprint(caminho_arquivo, tipo_arquivo=tipo)
+    
     gerar_diagnostico(df)
 
     # =========================================
@@ -36,6 +38,7 @@ if __name__ == "__main__":
     area_path = 'LCB-TI\\LCB-TI-COE Analytics'
     df['Iteration Path'] = iteration_path
     df['Area Path'] = area_path
+    df['Assigned To'] = "<leandro.pacheco1@arcelormittal.com.br>"
 
     # =========================================
     # 4. Confirmação e salvamento
