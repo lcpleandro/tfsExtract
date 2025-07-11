@@ -6,7 +6,7 @@ if __name__ == "__main__":
     # =========================================
     # 1. Caminho do arquivo CSV a ser processado
     # =========================================
-    caminho_arquivo = r'C:\Users\Leandro\OneDrive - ArcelorMittal\Desktop\hist_sprint\2025.w27\2025.W27 - plan.CSV'
+    caminho_arquivo = r'C:\Users\Leandro\OneDrive - ArcelorMittal\Desktop\hist_sprint\2025.w27\2025.W27 - nplan.CSV'
 
     # =========================================
     # 2. Processa e diagnostica o tipo de Input - nplan ou plan
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     # =========================================
     resposta = input(f"\nDeseja salvar os dados em '{caminho_final}'? (s/n): ").strip().lower()
     if resposta == 's':
-        df.to_csv(caminho_final, index=False, sep=',', float_format='%.2f', encoding='utf-8')
+        df.to_csv(caminho_final, index=False, sep=',', float_format='%.2f', encoding='utf-8',quoting=csv.QUOTE_NONNUMERIC)
         print(f"\n✅ Arquivo salvo com sucesso em:\n{caminho_final}")
     else:
         print("\n❌ Salvamento cancelado.")
